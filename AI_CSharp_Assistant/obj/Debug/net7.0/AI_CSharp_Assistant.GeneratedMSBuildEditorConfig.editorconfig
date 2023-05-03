@@ -1,0 +1,37 @@
+is_global = true
+build_property.AvaloniaNameGeneratorIsEnabled = true
+build_property.AvaloniaNameGeneratorBehavior = InitializeComponent
+build_property.AvaloniaNameGeneratorDefaultFieldModifier = internal
+build_property.AvaloniaNameGeneratorFilterByPath = *
+build_property.AvaloniaNameGeneratorFilterByNamespace = *
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = AI_CSharp_Assistant
+build_property.ProjectDir = C:\Users\Sepul\RiderProjects\AI_CSharp_Assistant\AI_CSharp_Assistant\
+
+[C:/Users/Sepul/RiderProjects/AI_CSharp_Assistant/AI_CSharp_Assistant/App.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/Sepul/RiderProjects/AI_CSharp_Assistant/AI_CSharp_Assistant/MainWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/Sepul/RiderProjects/AI_CSharp_Assistant/AI_CSharp_Assistant/Styles/CodeView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/Sepul/RiderProjects/AI_CSharp_Assistant/AI_CSharp_Assistant/Views/CodeRefactoringView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/Sepul/RiderProjects/AI_CSharp_Assistant/AI_CSharp_Assistant/Views/ImageGenView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/Sepul/RiderProjects/AI_CSharp_Assistant/AI_CSharp_Assistant/Views/SettingsView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/Sepul/RiderProjects/AI_CSharp_Assistant/AI_CSharp_Assistant/Views/SimpleChatView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

@@ -1,0 +1,159 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="AI_CSharp_Assistant.Views.MainWindow" Background="{DynamicResource SukiBackground}"
+        Classes="NakedWindow" 
+        xmlns:suki="clr-namespace:SukiUI.Controls;assembly=SukiUI"
+        xmlns:views="clr-namespace:AI_CSharp_Assistant.Views"
+        xmlns:viewModels="clr-namespace:AI_CSharp_Assistant.ViewModels"
+        xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+        xmlns:models="clr-namespace:OpenAI_API.Models;assembly=OpenAI_API"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="AI_CSharp_Assistant">
+        <suki:InteractiveContainer>
+        <suki:DesktopPage
+                LogoColor="#2f54eb"
+                MenuVisibility="False"
+                Title="AI Assistant">
+                <suki:SideMenu>
+                        <suki:SideMenu.DataContext>
+                                <suki:SideMenuModel HeaderContentOverlapsToggleSidebarButton="True">
+                                        <suki:SideMenuModel.HeaderContent>
+                                               <StackPanel >
+                                                       <Button Click="ShowSettingsDialog" Margin="0,3,0,0" HorizontalAlignment="Left" Classes="Accent">
+                                                               <avalonia:MaterialIcon Foreground="{DynamicResource SukiText}" Kind="SettingsOutline" Height="20" Width="20"></avalonia:MaterialIcon>
+                                                       </Button>
+                                                       <avalonia:MaterialIcon Margin="0,0,0,0" HorizontalAlignment="Center" Kind="AccountCircleOutline" Height="90" Width="90"></avalonia:MaterialIcon>
+                                                       <Border Height="20"></Border>
+                                               </StackPanel>
+                                        </suki:SideMenuModel.HeaderContent>
+                                        <suki:SideMenuModel.MenuItems>	  
+                                                <suki:SideMenuItem Header="Chats" Icon="ChatOutline">
+                                                        <suki:SideMenuItem.Content>
+                                                                <Grid Background="{DynamicResource SukiBackground}">
+                                                                <TabControl  Margin="0,10,0,0">
+                                                                        <TabItem>
+                                                                                <TabItem.Header>
+                                                                                        <TextBlock FontSize="17" Text="Simple Chat"></TextBlock>
+                                                                                </TabItem.Header>
+                                                                                <views:SimpleChatView >
+                                                                                        <views:SimpleChatView.DataContext>
+                                                                                                <viewModels:SimpleChatVM 
+                                                                                                        AccueilMessage="Hi, I am ChatGPT. How can I help you ?"
+                                                                                                        PresentationText="Simple chat. Ask me anything."
+                                                                                                        InitialInstruction=""
+                                                                                                               >
+                                                                                                </viewModels:SimpleChatVM>
+                                                                                        </views:SimpleChatView.DataContext>
+                                                                                </views:SimpleChatView>
+                                                                        </TabItem>
+                                                                        <TabItem>
+                                                                                <TabItem.Header>
+                                                                                        <TextBlock FontSize="17" Text="C# Assistant"></TextBlock>
+                                                                                </TabItem.Header>
+                                                                                <views:SimpleChatView >
+                                                                                        <views:SimpleChatView.DataContext>
+                                                                                        <viewModels:SimpleChatVM 
+                                                                                        AccueilMessage="Hi, I am your C# assistant. How can I help you ?"
+                                                                                        PresentationText="Ready to help you for C# programming specific questions."
+                                                                                        InitialInstruction="You are a C# expert. Every programming question asked is about C# by default. Every UI development is about AvaloniaUI or WPF by default. Format your answer with MarkDown."
+                                                                                        
+                                                                                        >
+                                                                                                </viewModels:SimpleChatVM>
+                                                                                        </views:SimpleChatView.DataContext>
+                                                                                </views:SimpleChatView>
+                                                                        </TabItem>
+                                                                       
+                                                                </TabControl>
+                                                                </Grid>
+                                                        </suki:SideMenuItem.Content>
+                                                </suki:SideMenuItem>
+                                                 <suki:SideMenuItem Header="Code Manipulation" Icon="Code">
+                                                        <suki:SideMenuItem.Content>
+                                                                <Grid Background="{DynamicResource SukiBackground}">
+                                                                <TabControl  Margin="0,10,0,0">
+                                                                        <TabItem>
+                                                                                <TabItem.Header>
+                                                                                        <TextBlock FontSize="17" Text="Generate Function"></TextBlock>
+                                                                                </TabItem.Header>
+                                                                                <views:CodeRefactoringView >
+                                                                                        <views:CodeRefactoringView.DataContext>
+                                                                                                <viewModels:CodeRefactoringVM
+                                                                                                        ActionString="Generate"
+                                                                                                        ActionIcon="Upload"
+                                                                                                        InitialInstruction="You are a C# expert. You work in C# and when we are talking about contour we mean an array of System.Drawing.Point. I will send you the description of a function. I don't want nothing more in your answer that the code of the function described by the message. Your answer must only contain the code. I don't want an explanation of your code, neither your answer formatted in Markdown, neither this character `. I want only the plain raw code. Your answer must start with public and end with }"
+                                                                                                        GPTModel="{x:Static models:Model.ChatGPTTurbo0301}"
+                                                                                                >
+                                                                                                </viewModels:CodeRefactoringVM>
+                                                                                        </views:CodeRefactoringView.DataContext>
+                                                                                </views:CodeRefactoringView>
+                                                                        </TabItem>
+                                                                        <TabItem>
+                                                                                <TabItem.Header>
+                                                                                        <TextBlock FontSize="17" Text="Refactor Code"></TextBlock>
+                                                                                </TabItem.Header>
+                                                                                <views:CodeRefactoringView >
+                                                                                        <views:CodeRefactoringView.DataContext>
+                                                                                                <viewModels:CodeRefactoringVM
+                                                                                                        ActionString="Refactor"
+                                                                                                        ActionIcon="Broom"
+                                                                                                        InitialInstruction="You are a C# expert. I will send you a c# code and you will answer with the same code but improved, refactored, cleaned and correctly indented. You must refactor it, and change the code deeply if necessary, even rename bad named variables, change over-complicated formulas, improve it, things like that. I don't want nothing more in your answer that the code refactored. The code is always the whole message, and your answer must only contain the refactored code."
+                                                                                                        GPTModel="{x:Static models:Model.ChatGPTTurbo0301}"
+                                                                                                >
+                                                                                                </viewModels:CodeRefactoringVM>
+                                                                                        </views:CodeRefactoringView.DataContext>
+                                                                                </views:CodeRefactoringView>
+                                                                        </TabItem>
+                                                                        
+                                                                        <TabItem>
+                                                                                <TabItem.Header>
+                                                                                        <TextBlock FontSize="17" Text="Make Code Robust"></TextBlock>
+                                                                                </TabItem.Header>
+                                                                                <views:CodeRefactoringView >
+                                                                                        <views:CodeRefactoringView.DataContext>
+                                                                                                <viewModels:CodeRefactoringVM
+                                                                                                        ActionString="Make Robust"
+                                                                                                        ActionIcon="CircleOutline"
+                                                                                                        InitialInstruction="You are a C# expert. I will send you a c# code and you will answer with the same code but made robust. You must make it robust, and change the code deeply if necessary. Check anything that could create error and correct it by making it robust. For every correction except the try-catch blocks, add a one line comment to explain what you did. Add try-catch blocks in the code to make it robust too. I don't want nothing more in your answer that the code robusted. Your answer must only contain the robusted code."
+                                                                                                        GPTModel="{x:Static models:Model.ChatGPTTurbo0301}">
+                                                                                                </viewModels:CodeRefactoringVM>
+                                                                                        </views:CodeRefactoringView.DataContext>
+                                                                                </views:CodeRefactoringView>
+                                                                        </TabItem>
+                                                                        <TabItem>
+                                                                                <TabItem.Header>
+                                                                                        <TextBlock FontSize="17" Text="Explain Code"></TextBlock>
+                                                                                </TabItem.Header>
+                                                                                <views:CodeRefactoringView >
+                                                                                        <views:CodeRefactoringView.DataContext>
+                                                                                                <viewModels:CodeRefactoringVM
+                                                                                                        ActionString="Explain"
+                                                                                                        ActionIcon="QuestionMark"
+                                                                                                        IsCode="False"
+                                                                                                        InitialInstruction="You are a C# expert. I will send you a c# code and you will answer with an explanation of that code in English. I don't want you to explain too much what the code do line by line but it's more about the goal of the code. Start your answer by telling me what is the aim of the code, then tell me how it do it."
+                                                                                                        GPTModel="{x:Static models:Model.ChatGPTTurbo0301}">
+                                                                                                </viewModels:CodeRefactoringVM>
+                                                                                        </views:CodeRefactoringView.DataContext>
+                                                                                </views:CodeRefactoringView>
+                                                                        </TabItem>
+                                                                </TabControl>
+                                                                </Grid>
+                                                        </suki:SideMenuItem.Content>
+                                                 </suki:SideMenuItem>
+                                                                        <suki:SideMenuItem Header="Image Generator" Icon="ImageAddOutline">
+                                                        <suki:SideMenuItem.Content>
+                                                                <views:ImageGenView DataContext="{x:Static viewModels:ImageGenVM.Instance}"></views:ImageGenView>
+                                                        </suki:SideMenuItem.Content>
+                                                </suki:SideMenuItem>
+                                        </suki:SideMenuModel.MenuItems>
+                                        <suki:SideMenuModel.FooterMenuItems>
+                                                <!-- SideMenuItems -->
+                                        </suki:SideMenuModel.FooterMenuItems>
+                                </suki:SideMenuModel>
+                        </suki:SideMenu.DataContext>
+                </suki:SideMenu>
+        </suki:DesktopPage>
+        </suki:InteractiveContainer>
+</Window>

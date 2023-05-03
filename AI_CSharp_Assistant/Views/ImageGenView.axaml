@@ -1,0 +1,35 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             xmlns:viewModels="clr-namespace:AI_CSharp_Assistant.ViewModels"
+             xmlns:controls="clr-namespace:SukiUI.Controls;assembly=SukiUI"
+             xmlns:asyncImageLoader="clr-namespace:AsyncImageLoader;assembly=AsyncImageLoader.Avalonia"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:DataType="viewModels:ImageGenVM"
+             x:Class="AI_CSharp_Assistant.Views.ImageGenView">
+    <DockPanel Background="{DynamicResource SukiBackground}">
+        
+        <Button Command="{Binding SaveImage}" DockPanel.Dock="Top" HorizontalAlignment="Right" Classes="Primary">
+            <TextBlock Text="Save Image"></TextBlock>
+        </Button>
+        <Grid Margin="10" DockPanel.Dock="Bottom">
+            <DockPanel>
+                <Button IsEnabled="{Binding !Sending}" Command="{Binding GenerateImage}" Height="50" Width="50" Classes="Rounded Primary" DockPanel.Dock="Right">
+                    <avalonia:MaterialIcon HorizontalAlignment="Center" VerticalAlignment="Center" Height="20" Width="20" Foreground="White" Kind="ArrowRight" />
+                </Button>
+                <TextBox IsEnabled="{Binding !Sending}" Text="{Binding InputString}" Margin="0,0,10,0" AcceptsReturn="True" TextWrapping="Wrap" Padding="10,5"></TextBox>
+            </DockPanel>
+        </Grid>
+        
+                <Grid Margin="15">
+                    <TextBlock IsVisible="{Binding !Sending}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="No Image yet."></TextBlock>
+              
+                    <asyncImageLoader:AdvancedImage CornerRadius="8" Stretch="Uniform"  Source="{Binding Url}"></asyncImageLoader:AdvancedImage>
+                 
+                    <controls:Loading HorizontalAlignment="Center" IsVisible="{Binding Sending}" VerticalAlignment="Center"></controls:Loading>
+                </Grid>
+            
+    </DockPanel>
+</UserControl>

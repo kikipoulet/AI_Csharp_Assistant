@@ -1,0 +1,43 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             DataContext="{x:Static models:Settings.Instance}"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:models="clr-namespace:AI_CSharp_Assistant.Models"
+             x:DataType="models:Settings"
+             Width="400" Height="400"
+             xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="400"
+             x:Class="AI_CSharp_Assistant.Views.SettingsView">
+   <Grid>
+       
+       <TextBlock Margin="10" Classes="h2" Text="Settings" HorizontalAlignment="Center"></TextBlock>
+       <StackPanel VerticalAlignment="Center">
+       <TextBlock Margin="25,30,15,5" FontSize="17" Text="API Key "></TextBlock>
+       <TextBox Height="35" Margin="15,0" Text="{Binding API_KEY}"></TextBox>
+       
+           <TextBlock Margin="25,30,15,5" FontSize="17" Text="Org ID "></TextBlock>
+           <TextBox Height="35" Margin="15,0" Text="{Binding ORG_ID}"></TextBox>
+
+       
+       <StackPanel Margin="25,18" VerticalAlignment="Center"  Orientation="Horizontal">
+           <TextBlock FontSize="17" Text="Dark Mode : " Margin="0,1,0,0" VerticalAlignment="Center"></TextBlock>
+           <ToggleButton VerticalAlignment="Center" Margin="10,0,0,0" Classes="Switch" IsChecked="{Binding DarkMode}">
+               <ToggleButton.RenderTransform>
+                   <ScaleTransform ScaleX="1.1" ScaleY="1.1"></ScaleTransform>
+               </ToggleButton.RenderTransform>
+           </ToggleButton>
+       </StackPanel>
+       </StackPanel>
+       <Button Margin="-7" Classes="Accent" HorizontalAlignment="Right" Click="CloseDialog" VerticalAlignment="Top">
+           <avalonia:MaterialIcon Kind="CloseCircleOutline" Foreground="DarkRed" Height="25" Width="25" />
+       </Button>
+       
+       <Button Command="{Binding SaveSettiings}" Classes="Primary Rounded" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="7">
+           <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
+               <avalonia:MaterialIcon Height="17" Width="17" Margin="0,-1,0,0" Foreground="White" VerticalAlignment="Center" Kind="ContentSave"></avalonia:MaterialIcon>
+               <TextBlock FontSize="17" Margin="10,0,0,0" Text="Save" Foreground="White"></TextBlock>
+           </StackPanel>
+       </Button>
+   </Grid>
+</UserControl>

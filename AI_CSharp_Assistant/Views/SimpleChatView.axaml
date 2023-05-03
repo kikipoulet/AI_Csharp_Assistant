@@ -1,0 +1,84 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             Background="{DynamicResource SukiBackground}"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:AI_CSharp_Assistant.ViewModels"
+             xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             xmlns:models="clr-namespace:AI_CSharp_Assistant.Models"
+             xmlns:controls="clr-namespace:SukiUI.Controls;assembly=SukiUI"
+             xmlns:avalonia1="clr-namespace:Markdown.Avalonia;assembly=Markdown.Avalonia"
+             xmlns:avedit="https://github.com/avaloniaui/avaloniaedit"
+             xmlns:ctxt="clr-namespace:ColorTextBlock.Avalonia;assembly=ColorTextBlock.Avalonia"
+             x:DataType="viewModels:SimpleChatVM"
+             DataContextChanged="StyledElement_OnDataContextChanged"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AI_CSharp_Assistant.Views.SimpleChatView">
+    <Grid>
+    <DockPanel IsVisible="{Binding chat, Converter={x:Static ObjectConverters.IsNotNull}}">
+       <Button DockPanel.Dock="Top" Command="{Binding Refresh}" Classes="Accent" HorizontalAlignment="Right" Margin="1">
+           <avalonia:MaterialIcon Kind="Refresh" Width="20" Height="20" Foreground="{DynamicResource SukiText}"></avalonia:MaterialIcon>
+       </Button>
+       <Grid Margin="10" DockPanel.Dock="Bottom">
+           <DockPanel>
+               <Button IsEnabled="{Binding !Sending}" Command="{Binding SendMessage}" Height="50" Width="50" Classes="Rounded Primary" DockPanel.Dock="Right">
+                   <avalonia:MaterialIcon HorizontalAlignment="Center" VerticalAlignment="Center" Height="20" Width="20" Foreground="White" Kind="ArrowRight" />
+               </Button>
+               <TextBox IsEnabled="{Binding !Sending}" Text="{Binding CurrentMessage}" Margin="0,0,10,0" AcceptsReturn="True" TextWrapping="Wrap" Padding="10,5"></TextBox>
+           </DockPanel>
+       </Grid>
+       <ScrollViewer x:Name="MonScrollViewer" >
+       <ItemsControl ItemsSource="{Binding Messages}">
+           <ItemsControl.DataTemplates>
+               <DataTemplate DataType="models:Message">
+                   <TransitioningContentControl >
+                       <TransitioningContentControl.PageTransition>
+                           <CrossFade Duration="0:00:00.200"  />
+                       </TransitioningContentControl.PageTransition>
+                       
+                       <Grid>
+                           <Grid IsVisible="{Binding IsAI}" ColumnDefinitions="5*,*">
+                               <DockPanel Grid.Column="0">
+                                   <avalonia:MaterialIcon DockPanel.Dock="Left" Height="20" Width="20" VerticalAlignment="Center" Margin="22,15,15,15" Kind="Robot"  Foreground="CornflowerBlue"></avalonia:MaterialIcon>
+                                   <Border MinWidth="200" HorizontalAlignment="Left" Classes="Card">
+                                       <StackPanel>
+                                           <Button Command="{Binding Copy}" CommandParameter="{Binding Content}" Classes="Accent" HorizontalAlignment="Right" Margin="-25,-20,-25,-12">
+                                               <avalonia:MaterialIcon Kind="ContentCopy" Foreground="{DynamicResource SukiText}"></avalonia:MaterialIcon>
+                                           </Button>
+                                           <ContentControl Content="{Binding Content}"></ContentControl>
+                                           <Viewbox IsVisible="{Binding IsWriting}" Height="20" Width="20" HorizontalAlignment="Center" Margin="5,25,5,0">
+                                                <controls:Loading ></controls:Loading>
+                                           </Viewbox>
+                                       </StackPanel>
+                                   </Border>
+                               </DockPanel>
+                               </Grid>
+                           
+                           <Grid IsVisible="{Binding !IsAI}" ColumnDefinitions="*,5*">
+                               <DockPanel Grid.Column="1">
+                                   <avalonia:MaterialIcon DockPanel.Dock="Right" Height="25" Width="25" VerticalAlignment="Center" Margin="15,15,22,15" Kind="UserCircleOutline" Foreground="Gray"></avalonia:MaterialIcon>
+                                   <Border MinWidth="200" HorizontalAlignment="Right"  Classes="Card">
+                                       <ContentControl Content="{Binding Content}"></ContentControl>
+                                   </Border>
+                               </DockPanel>
+                           </Grid>
+                           </Grid>
+                           
+                       </TransitioningContentControl>
+               </DataTemplate>
+           </ItemsControl.DataTemplates>
+       </ItemsControl>
+       </ScrollViewer>
+   </DockPanel>
+        <DockPanel IsVisible="{Binding chat, Converter={x:Static ObjectConverters.IsNull}}">
+            <ComboBox MaxWidth="300" DockPanel.Dock="Top" Margin="25" SelectedItem="{Binding GPTModel}" ItemsSource="{Binding AvailableModels}"></ComboBox>
+            <StackPanel Width="500"  VerticalAlignment="Center" HorizontalAlignment="Center"  >
+            <TextBlock  HorizontalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" Text="{Binding PresentationText}"></TextBlock>
+            
+            <Button Width="150" Margin="0,15,0,0" Padding="22,9" Command="{Binding Refresh}" Classes="Primary Rounded">
+                <TextBlock HorizontalAlignment="Center"  Text="Start Session"></TextBlock>
+            </Button>
+        </StackPanel>
+        </DockPanel>
+        </Grid>
+</UserControl>

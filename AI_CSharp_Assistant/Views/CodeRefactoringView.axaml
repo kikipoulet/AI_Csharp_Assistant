@@ -1,0 +1,35 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:styles="clr-namespace:AI_CSharp_Assistant.Styles"
+             xmlns:viewModels="clr-namespace:AI_CSharp_Assistant.ViewModels"
+             xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             xmlns:controls="clr-namespace:SukiUI.Controls;assembly=SukiUI"
+             x:DataType="viewModels:CodeRefactoringVM"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AI_CSharp_Assistant.Views.CodeRefactoringView">
+    <Grid ColumnDefinitions="2*,Auto,3*">
+        
+            <controls:BusyArea IsBusy="{Binding Sending}">
+        <Grid>
+            <TextBox CornerRadius="0" BorderThickness="0" Text="{Binding InputCode}" AcceptsReturn="True" TextWrapping="Wrap" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Top" Classes="FlatTextBox" Background="Transparent"></TextBox>
+            <Button Command="{Binding Send}" Classes="Primary" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="7">
+                <StackPanel Orientation="Horizontal">
+                    <avalonia:MaterialIcon Margin="0,-3,0,0" Kind="{Binding ActionIcon}" Foreground="White"></avalonia:MaterialIcon>
+                    <TextBlock Margin="5,0,0,0" Foreground="White" Text="{Binding ActionString}"></TextBlock>
+                </StackPanel>
+            </Button>
+        </Grid>
+        </controls:BusyArea>
+        
+        <Border Grid.Column="1" Width="1" Background="{DynamicResource SukiBorderBrush}"></Border>
+        <ScrollViewer IsVisible="{Binding !IsCode}" HorizontalScrollBarVisibility="Disabled" Grid.Column="2">
+            <TextBlock  Text="{Binding OutputCode}" TextAlignment="Left" TextWrapping="Wrap" Margin="12"></TextBlock>
+        </ScrollViewer>
+        <ScrollViewer  IsVisible="{Binding IsCode}" HorizontalScrollBarVisibility="Visible" Grid.Column="2">
+        <styles:CodeView Text="{Binding OutputCode}" ></styles:CodeView>
+            </ScrollViewer>
+        <TextBlock Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="No generated code yet." IsVisible="{Binding OutputCode, Converter={x:Static StringConverters.IsNullOrEmpty}}"></TextBlock>
+    </Grid>
+</UserControl>
