@@ -23,6 +23,10 @@ Made with [AvaloniaUI](https://github.com/AvaloniaUI/Avalonia) and [SukiUI](http
 
 <img src="https://raw.githubusercontent.com/kikipoulet/AI_Csharp_Assistant/master/gifs/Settings.gif"></img>
 
+## Generate XAML Avalonia
+
+<img src="https://raw.githubusercontent.com/kikipoulet/AI_Csharp_Assistant/master/gifs/xamlgenerator.gif"></img>
+
 ## Generate C# Function
 
 <img src="https://raw.githubusercontent.com/kikipoulet/AI_Csharp_Assistant/master/gifs/generatefunc.gif"></img>
