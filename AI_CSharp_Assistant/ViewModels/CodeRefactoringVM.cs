@@ -45,11 +45,7 @@ public class CodeRefactoringVM : ReactiveObject
 
     }
 
-    public string SendMessage()
-    {
-        var list = new List<string>();
-        return list.Where(t => t.Length > 4).First();
-    }
+  
     public void Send()
     {
         Sending = true;

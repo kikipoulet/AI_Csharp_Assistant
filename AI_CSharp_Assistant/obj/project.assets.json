@@ -214,6 +214,23 @@
           }
         }
       },
+      "Avalonia.Markup.Xaml.Loader/11.0.0-preview7": {
+        "type": "package",
+        "dependencies": {
+          "Avalonia": "11.0.0-preview7",
+          "System.Reflection.Emit": "4.3.0"
+        },
+        "compile": {
+          "lib/net6.0/Avalonia.Markup.Xaml.Loader.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Avalonia.Markup.Xaml.Loader.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Avalonia.Native/11.0.0-preview7": {
         "type": "package",
         "dependencies": {
@@ -1493,7 +1510,7 @@
           "System.Runtime": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.1/_._": {
+          "ref/netstandard1.1/System.Reflection.Emit.dll": {
             "related": ".xml"
           }
         },
@@ -1509,7 +1526,7 @@
           "System.Runtime": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.0/_._": {
+          "ref/netstandard1.0/System.Reflection.Emit.ILGeneration.dll": {
             "related": ".xml"
           }
         },
@@ -2068,6 +2085,22 @@
         "lib/net6.0/Avalonia.FreeDesktop.xml",
         "lib/netstandard2.0/Avalonia.FreeDesktop.dll",
         "lib/netstandard2.0/Avalonia.FreeDesktop.xml"
+      ]
+    },
+    "Avalonia.Markup.Xaml.Loader/11.0.0-preview7": {
+      "sha512": "HqQ66TQucI70Oi0UQRs6nu+imu4vCe0dtGz5Hf6NS3xClJOB81nY62u/rRpDr14Cx9zEJuxu10b809ltRHo7eQ==",
+      "type": "package",
+      "path": "avalonia.markup.xaml.loader/11.0.0-preview7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "avalonia.markup.xaml.loader.11.0.0-preview7.nupkg.sha512",
+        "avalonia.markup.xaml.loader.nuspec",
+        "lib/net6.0/Avalonia.Markup.Xaml.Loader.dll",
+        "lib/net6.0/Avalonia.Markup.Xaml.Loader.xml",
+        "lib/netstandard2.0/Avalonia.Markup.Xaml.Loader.dll",
+        "lib/netstandard2.0/Avalonia.Markup.Xaml.Loader.xml"
       ]
     },
     "Avalonia.Native/11.0.0-preview7": {
@@ -5356,6 +5389,7 @@
       "Avalonia >= 11.0.0-preview7",
       "Avalonia.Desktop >= 11.0.0-preview7",
       "Avalonia.Diagnostics >= 11.0.0-preview7",
+      "Avalonia.Markup.Xaml.Loader >= 11.0.0-preview7",
       "Avalonia.ReactiveUI >= 11.0.0-preview7",
       "ChatGPT.Net >= 2.0.0",
       "Markdown.Avalonia >= 11.0.0-b1",
@@ -5414,6 +5448,10 @@
             "version": "[11.0.0-preview7, )"
           },
           "Avalonia.Diagnostics": {
+            "target": "Package",
+            "version": "[11.0.0-preview7, )"
+          },
+          "Avalonia.Markup.Xaml.Loader": {
             "target": "Package",
             "version": "[11.0.0-preview7, )"
           },

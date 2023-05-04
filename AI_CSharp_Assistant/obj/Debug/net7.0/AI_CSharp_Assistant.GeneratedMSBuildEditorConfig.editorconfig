@@ -24,6 +24,9 @@ build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 [C:/Users/Sepul/RiderProjects/AI_CSharp_Assistant/AI_CSharp_Assistant/Styles/CodeView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
+[C:/Users/Sepul/RiderProjects/AI_CSharp_Assistant/AI_CSharp_Assistant/Views/AxamlGeneratorView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
 [C:/Users/Sepul/RiderProjects/AI_CSharp_Assistant/AI_CSharp_Assistant/Views/CodeRefactoringView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 

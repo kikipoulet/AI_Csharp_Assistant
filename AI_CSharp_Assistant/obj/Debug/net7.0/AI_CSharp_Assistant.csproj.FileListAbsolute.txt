@@ -155,3 +155,4 @@ C:\Users\Sepul\RiderProjects\AI_CSharp_Assistant\AI_CSharp_Assistant\bin\Debug\n
 C:\Users\Sepul\RiderProjects\AI_CSharp_Assistant\AI_CSharp_Assistant\bin\Debug\net7.0\Markdown.Avalonia.SyntaxHigh.dll
 C:\Users\Sepul\RiderProjects\AI_CSharp_Assistant\AI_CSharp_Assistant\bin\Debug\net7.0\Markdown.Avalonia.dll
 C:\Users\Sepul\RiderProjects\AI_CSharp_Assistant\AI_CSharp_Assistant\bin\Debug\net7.0\AsyncImageLoader.Avalonia.dll
+C:\Users\Sepul\RiderProjects\AI_CSharp_Assistant\AI_CSharp_Assistant\bin\Debug\net7.0\Avalonia.Markup.Xaml.Loader.dll

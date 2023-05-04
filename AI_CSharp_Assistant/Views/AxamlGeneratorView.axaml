@@ -1,0 +1,30 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:AI_CSharp_Assistant.ViewModels"
+             xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             xmlns:styles="clr-namespace:AI_CSharp_Assistant.Styles"
+             xmlns:controls="clr-namespace:SukiUI.Controls;assembly=SukiUI"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:DataType="viewModels:AxamlGeneratorVM"
+             x:Class="AI_CSharp_Assistant.Views.AxamlGeneratorView">
+    <DockPanel>
+        <DockPanel Margin="10" DockPanel.Dock="Bottom">
+            <Button IsEnabled="{Binding !Sending}" Command="{Binding SendMessage}" Height="50" Width="50" Classes="Rounded Primary" DockPanel.Dock="Right">
+                <avalonia:MaterialIcon HorizontalAlignment="Center" VerticalAlignment="Center" Height="20" Width="20" Foreground="White" Kind="ArrowRight" />
+            </Button>
+            <TextBox IsEnabled="{Binding !Sending}" Text="{Binding CurrentMessage}" Margin="0,0,10,0" AcceptsReturn="True" TextWrapping="Wrap" Padding="10,5"></TextBox>
+        </DockPanel>
+        <Grid ColumnDefinitions="*,Auto,*">
+            <ScrollViewer  HorizontalScrollBarVisibility="Visible" Grid.Column="0">
+                <styles:CodeView Text="{Binding OutputCode}" ></styles:CodeView>
+            </ScrollViewer>
+            <Border Grid.Column="1" Width="1" Background="{DynamicResource SukiBorderBrush}"></Border>
+            <controls:BusyArea Grid.Column="2" IsBusy="{Binding Sending}">
+            <ContentControl  Content="{Binding DemoContent}"></ContentControl>
+                </controls:BusyArea>
+        </Grid>
+    </DockPanel>
+    
+</UserControl>

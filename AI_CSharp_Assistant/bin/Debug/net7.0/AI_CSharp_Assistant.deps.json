@@ -12,6 +12,7 @@
           "Avalonia": "11.0.0-preview7",
           "Avalonia.Desktop": "11.0.0-preview7",
           "Avalonia.Diagnostics": "11.0.0-preview7",
+          "Avalonia.Markup.Xaml.Loader": "11.0.0-preview7",
           "Avalonia.ReactiveUI": "11.0.0-preview7",
           "ChatGPT.Net": "2.0.0",
           "Markdown.Avalonia": "11.0.0-b1",
@@ -174,6 +175,18 @@
         },
         "runtime": {
           "lib/net6.0/Avalonia.FreeDesktop.dll": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.0.0.0"
+          }
+        }
+      },
+      "Avalonia.Markup.Xaml.Loader/11.0.0-preview7": {
+        "dependencies": {
+          "Avalonia": "11.0.0-preview7",
+          "System.Reflection.Emit": "4.3.0"
+        },
+        "runtime": {
+          "lib/net6.0/Avalonia.Markup.Xaml.Loader.dll": {
             "assemblyVersion": "11.0.0.0",
             "fileVersion": "11.0.0.0"
           }
@@ -1275,6 +1288,13 @@
       "sha512": "sha512-dEZOjfeHo/BRnfWqbc1SJFP4T3vb2x407ft8pYFBr0TmwiGsz/62w/ROf4TAvt5p/CPrWpsrVHQDyf9OQZwYIA==",
       "path": "avalonia.freedesktop/11.0.0-preview7",
       "hashPath": "avalonia.freedesktop.11.0.0-preview7.nupkg.sha512"
+    },
+    "Avalonia.Markup.Xaml.Loader/11.0.0-preview7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-HqQ66TQucI70Oi0UQRs6nu+imu4vCe0dtGz5Hf6NS3xClJOB81nY62u/rRpDr14Cx9zEJuxu10b809ltRHo7eQ==",
+      "path": "avalonia.markup.xaml.loader/11.0.0-preview7",
+      "hashPath": "avalonia.markup.xaml.loader.11.0.0-preview7.nupkg.sha512"
     },
     "Avalonia.Native/11.0.0-preview7": {
       "type": "package",

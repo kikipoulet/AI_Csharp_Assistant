@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "sb1kxkZEUssz+bzKteJyvribJr0O4fT/RGnSmSNpWINY04msl1igsZMxb4mCN20iv0w9LIee2TJleoK+a8KjyQ==",
+  "dgSpecHash": "1C6/55lsMWpxn/W2JZb1F94ghXdQj/wTyUMkucnnOisgX2f/v65lqj1WQpMFUf8QoWbR1BfYKfpxo2SuUmCn+w==",
   "success": true,
   "projectFilePath": "C:\\Users\\Sepul\\RiderProjects\\AI_CSharp_Assistant\\AI_CSharp_Assistant\\AI_CSharp_Assistant.csproj",
   "expectedPackageFiles": [
@@ -14,6 +14,7 @@
     "C:\\Users\\Sepul\\.nuget\\packages\\avalonia.desktop\\11.0.0-preview7\\avalonia.desktop.11.0.0-preview7.nupkg.sha512",
     "C:\\Users\\Sepul\\.nuget\\packages\\avalonia.diagnostics\\11.0.0-preview7\\avalonia.diagnostics.11.0.0-preview7.nupkg.sha512",
     "C:\\Users\\Sepul\\.nuget\\packages\\avalonia.freedesktop\\11.0.0-preview7\\avalonia.freedesktop.11.0.0-preview7.nupkg.sha512",
+    "C:\\Users\\Sepul\\.nuget\\packages\\avalonia.markup.xaml.loader\\11.0.0-preview7\\avalonia.markup.xaml.loader.11.0.0-preview7.nupkg.sha512",
     "C:\\Users\\Sepul\\.nuget\\packages\\avalonia.native\\11.0.0-preview7\\avalonia.native.11.0.0-preview7.nupkg.sha512",
     "C:\\Users\\Sepul\\.nuget\\packages\\avalonia.reactiveui\\11.0.0-preview7\\avalonia.reactiveui.11.0.0-preview7.nupkg.sha512",
     "C:\\Users\\Sepul\\.nuget\\packages\\avalonia.remote.protocol\\11.0.0-preview7\\avalonia.remote.protocol.11.0.0-preview7.nupkg.sha512",

@@ -54,6 +54,10 @@
               "target": "Package",
               "version": "[11.0.0-preview7, )"
             },
+            "Avalonia.Markup.Xaml.Loader": {
+              "target": "Package",
+              "version": "[11.0.0-preview7, )"
+            },
             "Avalonia.ReactiveUI": {
               "target": "Package",
               "version": "[11.0.0-preview7, )"
