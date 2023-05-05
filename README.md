@@ -15,6 +15,12 @@ Made with [AvaloniaUI](https://github.com/AvaloniaUI/Avalonia) and [SukiUI](http
 
 # Features
 
+- Simple chat prepared for C# questions
+- Manipulation of C# code, generate function, refactor, clean, make robust
+- Avalonia AXAML Code generation to generate UI from a description text
+
+Don't hesitate to make suggestions to complete this little C#/Avalonia helper.
+
 ## Chat & C# oriented chat
 
 <img src="https://raw.githubusercontent.com/kikipoulet/AI_Csharp_Assistant/master/gifs/chatassistant.gif"></img>
@@ -22,6 +28,10 @@ Made with [AvaloniaUI](https://github.com/AvaloniaUI/Avalonia) and [SukiUI](http
 ## Settings and Dark Mode
 
 <img src="https://raw.githubusercontent.com/kikipoulet/AI_Csharp_Assistant/master/gifs/Settings.gif"></img>
+
+## Generate XAML Avalonia
+
+<img src="https://raw.githubusercontent.com/kikipoulet/AI_Csharp_Assistant/master/gifs/xamlgenerator.gif"></img>
 
 ## Generate C# Function
 
