@@ -1,4 +1,6 @@
 using System;
+using System.Threading;
+using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
@@ -6,6 +8,7 @@ using Avalonia.Data;
 using Avalonia.Layout;
 using Avalonia.Markup.Xaml;
 using Avalonia.Media;
+using Avalonia.Threading;
 using Material.Icons;
 using Material.Icons.Avalonia;
 
@@ -49,10 +52,14 @@ public partial class CodeView : UserControl
         grid.Children.Add(lineNumberTextBlock);
         grid.Children.Add(_textBlock);
 
+        var gridcontent = new Grid();
+        gridcontent.Children.Add(new MaterialIcon() { Kind = MaterialIconKind.ContentCopy, Foreground = new Avalonia.Media.SolidColorBrush((Avalonia.Media.Color)Application.Current.FindResource("SukiText"))});
+        gridcontent.Children.Add(new TextBlock(){IsVisible = false, HorizontalAlignment = HorizontalAlignment.Right, VerticalAlignment = VerticalAlignment.Center, FontSize = 12, Text = "Copied !"});
+        
         var button = new Button()
         {
             Classes = { "Accent" },
-            Content = new MaterialIcon() { Kind = MaterialIconKind.ContentCopy, Foreground = new Avalonia.Media.SolidColorBrush((Avalonia.Media.Color)Application.Current.FindResource("SukiText"))},
+            Content = gridcontent,
             HorizontalAlignment = HorizontalAlignment.Right,
             VerticalAlignment = VerticalAlignment.Top,
         };
@@ -61,6 +68,19 @@ public partial class CodeView : UserControl
         {
             TopLevel.GetTopLevel(((ClassicDesktopStyleApplicationLifetime)Application.Current.ApplicationLifetime)
                 .MainWindow).Clipboard.SetTextAsync(Text);
+
+            gridcontent.Children[0].IsVisible = false;
+            gridcontent.Children[1].IsVisible = true;
+
+            Task.Run(() =>
+            {
+                Thread.Sleep(3000);
+                Dispatcher.UIThread.Invoke(() =>
+                {
+                    gridcontent.Children[0].IsVisible = true;
+                    gridcontent.Children[1].IsVisible = false;
+                });
+            });
         };
         
         Grid.SetColumn(button,1);
