@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "1C6/55lsMWpxn/W2JZb1F94ghXdQj/wTyUMkucnnOisgX2f/v65lqj1WQpMFUf8QoWbR1BfYKfpxo2SuUmCn+w==",
+  "dgSpecHash": "bo02B7E3yUiXOZRb8vzOIwaso7gxndBtivacIS+9s/2u+AqzhTFn1wpaEXKUXg15a4cA7pAAH+qCWmz8OZE5WQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Sepul\\RiderProjects\\AI_CSharp_Assistant\\AI_CSharp_Assistant\\AI_CSharp_Assistant.csproj",
   "expectedPackageFiles": [
@@ -66,7 +66,7 @@
     "C:\\Users\\Sepul\\.nuget\\packages\\skiasharp.nativeassets.webassembly\\2.88.3\\skiasharp.nativeassets.webassembly.2.88.3.nupkg.sha512",
     "C:\\Users\\Sepul\\.nuget\\packages\\skiasharp.nativeassets.win32\\2.88.3\\skiasharp.nativeassets.win32.2.88.3.nupkg.sha512",
     "C:\\Users\\Sepul\\.nuget\\packages\\splat\\14.6.8\\splat.14.6.8.nupkg.sha512",
-    "C:\\Users\\Sepul\\.nuget\\packages\\sukiui\\4.7.1\\sukiui.4.7.1.nupkg.sha512",
+    "C:\\Users\\Sepul\\.nuget\\packages\\sukiui\\4.7.5\\sukiui.4.7.5.nupkg.sha512",
     "C:\\Users\\Sepul\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
     "C:\\Users\\Sepul\\.nuget\\packages\\system.collections.immutable\\5.0.0\\system.collections.immutable.5.0.0.nupkg.sha512",
     "C:\\Users\\Sepul\\.nuget\\packages\\system.componentmodel.annotations\\4.5.0\\system.componentmodel.annotations.4.5.0.nupkg.sha512",

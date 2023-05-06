@@ -28,7 +28,7 @@
         <PackageReference Include="Markdown.Avalonia" Version="11.0.0-b1" />
         <PackageReference Include="OpenAI" Version="1.7.2" />
         <PackageReference Include="ReactiveUI.Fody" Version="18.4.34" />
-        <PackageReference Include="SukiUI" Version="4.7.1" />
+        <PackageReference Include="SukiUI" Version="4.7.5" />
     </ItemGroup>
 
     <ItemGroup>

@@ -9,7 +9,7 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:DataType="viewModels:ImageGenVM"
              x:Class="AI_CSharp_Assistant.Views.ImageGenView">
-    <DockPanel Background="{DynamicResource SukiBackground}">
+    <DockPanel >
         
         <Button Command="{Binding SaveImage}" DockPanel.Dock="Top" HorizontalAlignment="Right" Classes="Primary">
             <TextBlock Text="Save Image"></TextBlock>

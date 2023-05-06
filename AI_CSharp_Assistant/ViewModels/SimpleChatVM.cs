@@ -20,13 +20,15 @@ namespace AI_CSharp_Assistant.ViewModels;
 
 public class SimpleChatVM : ReactiveObject
 {
-    [Reactive]
-    public ObservableCollection<string> AvailableModels { get; set; } = new ObservableCollection<string>()
+    [Reactive] public ObservableCollection<string> AvailableModels { get; set; } = new ObservableCollection<string>()
         { "ChatGPT Turbo", "ChatGPT 4", "ChatGPT 4 32k" };
+    
+    
     public string AccueilMessage { get; set; } = "Hi, I am your C# assistant. How can I help you ?";
     public string PresentationText { get; set; } = "Ready to help you for C# programming specific questions.";
     [Reactive] public string InitialInstruction { get; set; } = "You are a C# expert. Every programming question asked is about C# by default. Every UI development is about AvaloniaUI or WPF by default. Format your answer with MarkDown.";
    [Reactive] public string GPTModel { get; set; } = "ChatGPT Turbo";
+   [Reactive] public string CMode { get; set; } = "Normal";
     public ScrollViewer MessagesScrollViewer { get; set; } = null;
     [Reactive] public string CurrentMessage { get; set; } = "";
     [Reactive] public bool Sending { get; set; } = false;
@@ -71,7 +73,8 @@ public class SimpleChatVM : ReactiveObject
     {
         chat = ChatGPT_Engine.Instance.GPT.Chat.CreateConversation(new ChatRequest()
         {
-            Model = GetCurrentModel()
+            Model = GetCurrentModel(), 
+            Temperature = GetTemperature()
         });
         chat.AppendSystemMessage(InitialInstruction);
 
@@ -84,6 +87,26 @@ public class SimpleChatVM : ReactiveObject
                 }
             };
     }
+
+    public void Reload()
+    {
+        chat = null;
+    }
+    private double GetTemperature()
+    {
+        switch (CMode)
+        {
+            case "Strict":
+                return 0;
+            case "Normal" :
+                return 0.8;
+            case "Creative":
+                return 1.2;
+        }
+
+        return 0.8;
+    }
+
     public void SendMessage()
     {
         if(chat == null)

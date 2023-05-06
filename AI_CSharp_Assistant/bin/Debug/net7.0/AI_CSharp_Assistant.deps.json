@@ -18,7 +18,7 @@
           "Markdown.Avalonia": "11.0.0-b1",
           "OpenAI": "1.7.2",
           "ReactiveUI.Fody": "18.4.34",
-          "SukiUI": "4.7.1"
+          "SukiUI": "4.7.5"
         },
         "runtime": {
           "AI_CSharp_Assistant.dll": {}
@@ -931,7 +931,7 @@
           }
         }
       },
-      "SukiUI/4.7.1": {
+      "SukiUI/4.7.5": {
         "dependencies": {
           "Avalonia": "11.0.0-preview7",
           "Avalonia.Controls.DataGrid": "11.0.0-preview7",
@@ -1653,12 +1653,12 @@
       "path": "splat/14.6.8",
       "hashPath": "splat.14.6.8.nupkg.sha512"
     },
-    "SukiUI/4.7.1": {
+    "SukiUI/4.7.5": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-KWXleFrmx//GEkoK0QX9MZnXPlzqjr2yHudRrMduBrxx81q6s+2rXpfk4NSyp+HbIYBLGLfnpVsgiNrNVoZCeg==",
-      "path": "sukiui/4.7.1",
-      "hashPath": "sukiui.4.7.1.nupkg.sha512"
+      "sha512": "sha512-rtqQ63E/urP+dOHrYUQqePcPhehvy9zw2fbGLKcklWwzmIoClQ5P6rivmJaMf8w6WRxo5dPHvU74LJBnxJ3FPQ==",
+      "path": "sukiui/4.7.5",
+      "hashPath": "sukiui.4.7.5.nupkg.sha512"
     },
     "System.Collections/4.3.0": {
       "type": "package",

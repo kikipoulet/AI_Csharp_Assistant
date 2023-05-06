@@ -3,7 +3,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="AI_CSharp_Assistant.Views.MainWindow" Background="{DynamicResource SukiBackground}"
+        x:Class="AI_CSharp_Assistant.Views.MainWindow" 
         Classes="NakedWindow" 
         xmlns:suki="clr-namespace:SukiUI.Controls;assembly=SukiUI"
         xmlns:views="clr-namespace:AI_CSharp_Assistant.Views"
@@ -13,11 +13,11 @@
         Icon="/Assets/avalonia-logo.ico"
         Title="AI_CSharp_Assistant">
         <suki:InteractiveContainer>
-        <suki:DesktopPage
+        <suki:DesktopPage ShowBottomBorder="False"
                 LogoColor="#2f54eb"
                 MenuVisibility="False"
                 Title="AI Assistant">
-                <suki:SideMenu>
+                <suki:SideMenu WinUIStyle="True">
                         <suki:SideMenu.DataContext>
                                 <suki:SideMenuModel HeaderContentOverlapsToggleSidebarButton="True">
                                         <suki:SideMenuModel.HeaderContent>
@@ -32,7 +32,7 @@
                                         <suki:SideMenuModel.MenuItems>	  
                                                 <suki:SideMenuItem Header="Chats" Icon="ChatOutline">
                                                         <suki:SideMenuItem.Content>
-                                                                <Grid Background="{DynamicResource SukiBackground}">
+                                                                
                                                                 <TabControl  Margin="0,10,0,0">
                                                                         <TabItem>
                                                                                 <TabItem.Header>
@@ -67,12 +67,12 @@
                                                                         </TabItem>
                                                                        
                                                                 </TabControl>
-                                                                </Grid>
+                                                                
                                                         </suki:SideMenuItem.Content>
                                                 </suki:SideMenuItem>
                                                  <suki:SideMenuItem Header="Code" Icon="LanguageCsharp">
                                                         <suki:SideMenuItem.Content>
-                                                                <Grid Background="{DynamicResource SukiBackground}">
+                                                               
                                                                 <TabControl  Margin="0,10,0,0">
                                                                         <TabItem>
                                                                                 <TabItem.Header>
@@ -139,12 +139,12 @@
                                                                                 </views:CodeRefactoringView>
                                                                         </TabItem>
                                                                 </TabControl>
-                                                                </Grid>
+                                                               
                                                         </suki:SideMenuItem.Content>
                                                  </suki:SideMenuItem>
                                                   <suki:SideMenuItem Header="Xaml" Icon="Code">
                                                         <suki:SideMenuItem.Content>
-                                                                <Grid Background="{DynamicResource SukiBackground}">
+                                                              
                                                                 <TabControl  Margin="0,10,0,0">
                                                                         <TabItem>
                                                                                 <TabItem.Header>
@@ -157,7 +157,7 @@
                                                                                </views:AxamlGeneratorView>
                                                                         </TabItem>
                                                                 </TabControl>
-                                                                </Grid>
+                                                             
                                                         </suki:SideMenuItem.Content>
                                                   </suki:SideMenuItem>
                                                                         <suki:SideMenuItem Header="Image Generator" Icon="ImageAddOutline">

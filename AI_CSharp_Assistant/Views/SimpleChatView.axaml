@@ -1,5 +1,4 @@
 <UserControl xmlns="https://github.com/avaloniaui"
-             Background="{DynamicResource SukiBackground}"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -16,7 +15,7 @@
              x:Class="AI_CSharp_Assistant.Views.SimpleChatView">
     <Grid>
     <DockPanel IsVisible="{Binding chat, Converter={x:Static ObjectConverters.IsNotNull}}">
-       <Button DockPanel.Dock="Top" Command="{Binding Refresh}" Classes="Accent" HorizontalAlignment="Right" Margin="1">
+       <Button DockPanel.Dock="Top" Command="{Binding Reload}" Classes="Accent" HorizontalAlignment="Right" Margin="1">
            <avalonia:MaterialIcon Kind="Refresh" Width="20" Height="20" Foreground="{DynamicResource SukiText}"></avalonia:MaterialIcon>
        </Button>
        <Grid Margin="10" DockPanel.Dock="Bottom">
@@ -70,15 +69,31 @@
        </ItemsControl>
        </ScrollViewer>
    </DockPanel>
-        <DockPanel IsVisible="{Binding chat, Converter={x:Static ObjectConverters.IsNull}}">
-            <ComboBox MaxWidth="300" DockPanel.Dock="Top" Margin="25" SelectedItem="{Binding GPTModel}" ItemsSource="{Binding AvailableModels}"></ComboBox>
-            <StackPanel Width="500"  VerticalAlignment="Center" HorizontalAlignment="Center"  >
-            <TextBlock  HorizontalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" Text="{Binding PresentationText}"></TextBlock>
+        <Grid IsVisible="{Binding chat, Converter={x:Static ObjectConverters.IsNull}}">
+            <Expander Width="330" Header="Chat Options" HorizontalAlignment="Left" VerticalAlignment="Bottom" MaxWidth="400"  Margin="25">
+                <StackPanel Margin="0,10,0,0" >
+                    <ComboBox MaxWidth="330"    SelectedItem="{Binding GPTModel}" ItemsSource="{Binding AvailableModels}"></ComboBox>
+                    <StackPanel Margin="0,20,0,0" Orientation="Horizontal">
+                        <RadioButton IsCheckedChanged="ToggleButton_OnIsCheckedChanged" Height="40" Margin="5,0" Classes="Chips">
+                            <TextBlock Text="Strict"></TextBlock>
+                        </RadioButton>
+                        <RadioButton Height="40" Margin="5,0" IsChecked="True" IsCheckedChanged="ToggleButton_OnIsCheckedChanged" Classes="Chips">
+                            <TextBlock Text="Normal"></TextBlock>
+                        </RadioButton>
+                        <RadioButton IsCheckedChanged="ToggleButton_OnIsCheckedChanged" Height="40" Margin="5,0" Classes="Chips">
+                            <TextBlock Text="Creative"></TextBlock>
+                        </RadioButton>
+                    </StackPanel>
+                </StackPanel>
+            </Expander>
             
-            <Button Width="150" Margin="0,15,0,0" Padding="22,9" Command="{Binding Refresh}" Classes="Primary Rounded">
-                <TextBlock HorizontalAlignment="Center"  Text="Start Session"></TextBlock>
+            <StackPanel Width="500" Margin="0,0,0,50" VerticalAlignment="Center" HorizontalAlignment="Center"  >
+            <TextBlock Margin="15"  HorizontalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" Text="{Binding PresentationText}"></TextBlock>
+            
+            <Button Width="200" Margin="0,0,0,30" Padding="35,12" Command="{Binding Refresh}" Classes="Primary Rounded">
+                <TextBlock HorizontalAlignment="Center" FontSize="17"  Text="Start Session"></TextBlock>
             </Button>
         </StackPanel>
-        </DockPanel>
+        </Grid>
         </Grid>
 </UserControl>
